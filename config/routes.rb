@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'signup' => 'users#new'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get 'users/show'
 
-  resources :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
+  get "search", to: "home#index"
+  get 'user' => 'users/index'
   get 'home/index'
   root 'home#index'
 

@@ -1,6 +1,32 @@
-<div class="Header">
-	<h1>FlashMe</h1>
-	<%= link_to "Log In", login_path %>
-	<%= link_to "Sign Up", new_user_path %>
+<!-- include jQuery library -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<!-- include Cycle plugin -->
+<script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade',
+		speed: 'fast',
+		timeout: '1000',
+		nowrap: 'true',
+		end: function () {
+			$.ajax("home/index")
+		}
+	});
+});
+</script>
+
+<body style="background-color: black">
+<div id="tumblr" class="container" style="background-color: black" >
+	<div class="slideshow">
+	<% for image in @images do %>
+		<% if image["height"] > 450 %>
+			<% new_width = image["width"] - (image["width"] * (image["height"] - 450)/image["height"]) %>
+			<div><img class="img-responsive" style="margin: auto" width=<%=new_width%> src=<%= image['url'] %>></div>
+		<% else %>
+			<div><img class="img-responsive" style="margin: auto" src=<%= image['url'] %>></div>
+		<% end %>
+	<% end %>
+	</div>
 </div>
-<div class="bg"></div>
+</body>
