@@ -26,3 +26,6 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Try it locally please. JQuery isn't working on heroku :(
+Flash me pulls tumblr photos related to tags you search for. If you sign up you can go to your profile page and look at your post view history. It's supposed to cycle through the posts and then refresh and bring new posts. Good luck.
