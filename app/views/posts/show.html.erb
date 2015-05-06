@@ -8,9 +8,10 @@
 		</tr>
 		<% @posts.each do |post| %>
 		<tr>
-			<td> <%=post.blog_name %> </td>
-			<td> <%=post.post_url %> </td>
+			<td> <a href=<%="//" + post.blog_name + ".tumblr.com"%>><%=post.blog_name%></a> </td>
+			<td> <a href=<%="//" + post.post_url %>><%=post.post_url%></a> </td>
 			<td> <%=post.date %> </td>
 		</tr>
+		<% end %>
 	</table>
 </div>

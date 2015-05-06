@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   	@users = User.all
   end
 
+  def show
+  	@posts = Post.where(belongs_to: current_user)
+  end
+
   private
 
   def user_params

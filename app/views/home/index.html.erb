@@ -10,7 +10,7 @@ $(document).ready(function() {
 		timeout: '1000',
 		nowrap: 'true',
 		end: function () {
-			$.ajax("home/index")
+			$.ajax(location.reload())
 		}
 	});
 });
@@ -20,8 +20,8 @@ $(document).ready(function() {
 <div id="tumblr" class="container" style="background-color: black" >
 	<div class="slideshow">
 	<% for image in @images do %>
-		<% if image["height"] > 450 %>
-			<% new_width = image["width"] - (image["width"] * (image["height"] - 450)/image["height"]) %>
+		<% if image["height"] > 650 %>
+			<% new_width = image["width"] - (image["width"] * (image["height"] - 650)/image["height"]) %>
 			<div><img class="img-responsive" style="margin: auto" width=<%=new_width%> src=<%= image['url'] %>></div>
 		<% else %>
 			<div><img class="img-responsive" style="margin: auto" src=<%= image['url'] %>></div>

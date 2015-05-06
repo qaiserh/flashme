@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'posts/show'
+
   get 'users/show'
 
   devise_for :users, :controllers => { registrations: 'registrations' }

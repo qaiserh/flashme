@@ -17,6 +17,10 @@ class HomeController < ApplicationController
   	for post in result
   		if post["type"] == "photo"
   			posts.push(post["photos"])
+  			if user_signed_in?
+  				new_post = Post.new(:blog_name => post["blog_name"], :post_url => post["post_url"], :date => post["date"], :tags => "", :user => current_user)
+  				new_post.save
+  			end
   			if @@timestamp > post["timestamp"] or @@timestamp == 0
   				@@timestamp = post["timestamp"]
   			end
